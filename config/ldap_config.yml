@@ -1,0 +1,9 @@
+ldap_settings:
+  ldap_hostname: # subdomain.domain.com
+  ldap_group_cn: # OAuth
+  ldap_username: # CN=Example,OU=Users,DC=domain,DC=com
+  ldap_password: # pass123
+  ssl_email: # email@gmail.com
+  ssl_domain: # somedomain.com
+  jwt_secret: # secret
+  volume_mount_path: # /home/luke/ldap-oauth2-provider/mounted-settings
