@@ -14,10 +14,10 @@ module SSLCerts
       private_key = OpenSSL::PKey::RSA.new(4096)
 
       # Staging server
-      endpoint = 'https://acme-staging.api.letsencrypt.org/directory'
+      # endpoint = 'https://acme-staging.api.letsencrypt.org/directory'
 
       # Production server
-      # endpoint = 'https://acme-v01.api.letsencrypt.org/directory'
+      endpoint = 'https://acme-v01.api.letsencrypt.org/directory'
 
 
       require 'acme-client'
