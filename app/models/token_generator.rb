@@ -75,7 +75,8 @@ class TokenGenerator < TokenBase
         eml: data[:mail],
         phn: data[:telephonenumber],
         job: data[:title],
-        scp: create_scopes(data[:distinguishedname][0])
+        oru: create_scopes(data[:distinguishedname][0]),
+        scp: get_group_cn(data[:memberof])
       }
       JWT.encode payload, SECRET, HASHING_ALGO
     end
@@ -96,6 +97,12 @@ class TokenGenerator < TokenBase
         end
       end
       scopes
+    end
+
+
+    def get_group_cn(memberof)
+      cn = memberof.partition(',')[0]
+      cn.partition('=')[2]
     end
 
 end
