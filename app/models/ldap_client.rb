@@ -62,7 +62,8 @@ class LDAP_Client
       'telephonenumber',
       'title',
       'distinguishedname',
-      'memberof'
+      'memberof',
+      'samaccountname'
     ]
 
     options = {
