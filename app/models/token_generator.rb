@@ -77,7 +77,7 @@ class TokenGenerator < TokenBase
         job: data[:title],
         oru: create_scopes(data[:distinguishedname][0]),
         scp: get_group_cns(data[:memberof]),
-        san: data[:samaccountname]
+        smn: data[:samaccountname]
       }
       JWT.encode payload, SECRET, HASHING_ALGO
     end
