@@ -65,11 +65,12 @@ class TokenGenerator < TokenBase
     end
 
     def construct_jwt(data, seconds_to_expiration)
+      drift = 300
       payload = {
         iss: generate_issuer_from_host_name,
         jti: SecureRandom.uuid,
         exp: Time.now.to_i + seconds_to_expiration,
-        nbf: Time.now.to_i,
+        nbf: Time.now.to_i - drift,
         uid: data[:employeeid],
         nme: data[:name],
         eml: data[:mail],
