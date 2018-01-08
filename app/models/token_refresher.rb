@@ -59,9 +59,10 @@ class TokenRefresher < TokenBase
 
       def construct_access_jwt_from_refresh_jwt(refresh_token, seconds_to_expiration)
         access_token = refresh_token.dup
+        drift = 300
         access_token['jti'] = SecureRandom.uuid
         access_token['exp'] = Time.now.to_i + seconds_to_expiration
-        access_token['nbf'] = Time.now.to_i
+        access_token['nbf'] = Time.now.to_i - drift
         JWT.encode access_token, SECRET, HASHING_ALGO
       end
 
