@@ -5,13 +5,13 @@ class SslCertCheckerWorker
   include Sidekiq::Worker
 
   def perform
-    puts "Checking if SSL certificates need to be renewed"
+    logger.info "Checking if SSL certificates need to be renewed"
     if SSLCerts::Checker.certs_need_to_be_renewed?
-      puts "Renewing certs"
+      logger.info "Renewing certs"
       SSLCerts::Creator.overwrite_cert
-      puts "Done renewing certs"
+      logger.info "Done renewing certs"
     else
-      puts "Certs did not need to be renewed"
+      logger.info "Certs did not need to be renewed"
     end
   end
 end
