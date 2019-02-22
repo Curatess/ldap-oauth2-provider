@@ -17,3 +17,4 @@
 .byebug_history
 :memory
 /config/puma.rb.bu
+*.swp
