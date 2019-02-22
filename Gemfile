@@ -30,7 +30,7 @@ gem 'redis', '~>3.2'
 gem 'sidekiq', '~>5.0'
 gem 'sidekiq-client-cli'
 
-gem 'grape', '~> 0.19.2'
+gem 'grape', '~> 1.1'
 
 gem 'grape-jsonapi-resources'
 gem 'jsonapi-resources', '~> 0.9.0'
